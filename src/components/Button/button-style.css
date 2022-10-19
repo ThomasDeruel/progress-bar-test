@@ -1,0 +1,11 @@
+button {
+  outline: 0;
+  cursor: pointer;
+  display: block;
+  border: none;
+  font-size: 14px;
+  padding: 12px 16px;
+  box-shadow: var(--box-shadow);
+  color: var(--vt-box_shadow);
+  background-color: var(--vt-c-black-lighter);
+}

@@ -1,0 +1,46 @@
+.ProgressBar {
+  --progressbar-c-75-to-100: #30db63;
+  --progressbar-c-50-to-75: #60e8b6;
+  --progressbar-c-25-to-50: #60ade8;
+  --progressbar-c-0-to-25: #7160e8;
+  width: 100%;
+  height: auto;
+  color: var(--vt-c-white);
+  margin-bottom: 24px;
+}
+
+.ProgressBar h2 {
+  font-size: 16px;
+}
+.ProgressBar_flex {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.ProgressBar_flex p {
+  margin-right: 21px;
+  font-size: 24px;
+}
+.ProgressBar_container {
+  width: 100%;
+  height: 15px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--vt-c-black-lighter);
+}
+div.ProgressBar span {
+  display: block;
+  height: 15px;
+  transition: background-color 0.5s ease;
+}
+div.ProgressBar span.ProgressBar_0-to-25 {
+  background-color: var(--progressbar-c-0-to-25);
+}
+div.ProgressBar span.ProgressBar_25-to-50 {
+  background-color: var(--progressbar-c-25-to-50);
+}
+div.ProgressBar span.ProgressBar_50-to-75 {
+  background-color: var(--progressbar-c-50-to-75);
+}
+div.ProgressBar span.ProgressBar_75-to-100 {
+  background-color: var(--progressbar-c-75-to-100);
+}

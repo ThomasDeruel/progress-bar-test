@@ -1,47 +1,55 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from "vue";
+import Button from "./components/Button/Button.vue";
+import ProgressBar from "./components/ProgressBar/ProgressBar.vue";
+
+const progressBarList = ref([
+  {
+    text: "Initialisation du test technique",
+    value: 0,
+  },
+  { text: "Avancement de la phase de développement", value: 50 },
+]);
+
+const resetValue = () => {
+  progressBarList.value = progressBarList.value.map((el) => {
+    return { ...el, value: 0 };
+  });
+};
+
+const Add5percent = () => {
+  progressBarList.value = progressBarList.value.map((el) => {
+    return { ...el, value: el.value + 5 };
+  });
+};
+
+const Add10percent = () => {
+  progressBarList.value = progressBarList.value.map((el) => {
+    return { ...el, value: el.value + 10 };
+  });
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>Deruel, Thomas: réalisation le 19/10/2022</h1>
+  <div v-for="(pb, index) in progressBarList" :key="index">
+    <ProgressBar :progressionValue="pb.value">{{ pb.text }} </ProgressBar>
+  </div>
+  <div class="actions">
+    <Button @click="resetValue">Remettre à zéro les compteurs</Button>
+    <Button @click="Add5percent">Ajouter 5%</Button>
+    <Button @click="Add10percent">Ajouter 10%</Button>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+h1 {
+  margin-bottom: 24px;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 </style>
